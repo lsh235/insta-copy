@@ -2,7 +2,30 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+### Environment Setup
+
+1. Create a `.env` file in the root directory by copying `.env.example`:
+```bash
+cp .env.example .env
+```
+
+2. Update the environment variables in `.env`:
+   - `DATABASE_URL`: Path to your SQLite database (default: `file:./dev.db`)
+   - `AUTH_SECRET`: Generate a secure secret with `openssl rand -base64 32`
+   - `AUTH_URL`: Your application URL (e.g., `http://localhost:3000` for development)
+   - `AUTH_TRUST_HOST`: Set to `"true"` if running behind a proxy or in environments like GitHub Codespaces
+
+3. Install dependencies:
+```bash
+npm install
+```
+
+4. Generate Prisma client:
+```bash
+npx prisma generate
+```
+
+5. Run the development server:
 
 ```bash
 npm run dev
